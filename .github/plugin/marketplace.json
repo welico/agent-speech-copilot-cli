@@ -1,0 +1,34 @@
+{
+  "name": "welico",
+  "owner": {
+    "name": "welico",
+    "email": "welico@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "welico Copilot CLI plugins",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "agent-speech-copilot-cli",
+      "description": "Text-to-speech plugin for GitHub Copilot CLI using macOS say command.",
+      "version": "0.1.0",
+      "author": {
+        "name": "welico",
+        "url": "https://github.com/welico"
+      },
+      "repository": "https://github.com/welico/agent-speech-copilot-cli",
+      "homepage": "https://github.com/welico/agent-speech-copilot-cli#readme",
+      "license": "MIT",
+      "keywords": [
+        "copilot-cli",
+        "tts",
+        "speech",
+        "macos",
+        "say"
+      ],
+      "category": "accessibility",
+      "source": "plugins/agent-speech-copilot-cli"
+    }
+  ]
+}
