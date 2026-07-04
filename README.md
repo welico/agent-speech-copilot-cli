@@ -5,8 +5,10 @@ A macOS TTS (voice notification) plugin for GitHub Copilot CLI.
 ## Installation
 
 ```bash
-# Add marketplace once; update it if already registered
-copilot plugin marketplace add https://github.com/welico/agent-speech-copilot-cli || copilot plugin marketplace update welico
+# Register (or re-register) marketplace
+copilot plugin marketplace remove welico || true
+copilot plugin marketplace add https://github.com/welico/agent-speech-copilot-cli
+copilot plugin marketplace browse welico
 
 # Install from marketplace
 copilot plugin install agent-speech-copilot-cli@welico
@@ -31,6 +33,13 @@ copilot plugin install agent-speech-copilot-cli@welico
   - Temporary fallback (if marketplace install keeps timing out):
     ```bash
     copilot plugin install welico/agent-speech-copilot-cli:plugins/agent-speech-copilot-cli
+    ```
+- `Plugin "agent-speech-copilot-cli" not found in marketplace "welico". Available plugins: agent-speech`
+  - Your local `welico` marketplace is pointing to an older/different catalog. Re-register it:
+    ```bash
+    copilot plugin marketplace remove welico
+    copilot plugin marketplace add https://github.com/welico/agent-speech-copilot-cli
+    copilot plugin marketplace browse welico
     ```
 
 ## Behavior
