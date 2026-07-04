@@ -1,7 +1,7 @@
 {
   "name": "agent-speech-copilot-cli",
   "description": "Text-to-speech plugin for GitHub Copilot CLI using macOS native say command.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "author": {
     "name": "welico",
     "email": "welico@users.noreply.github.com",
@@ -18,5 +18,6 @@
     "accessibility"
   ],
   "category": "accessibility",
-  "hooks": "hooks/hooks.json"
+  "hooks": "hooks/hooks.json",
+  "commands": "commands/"
 }

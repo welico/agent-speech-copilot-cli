@@ -57,6 +57,23 @@ copilot plugin install agent-speech-copilot-cli@welico
 - On the `agentStop` hook, it plays a voice notification with macOS `say` when a response is complete.
 - It prioritizes sentence-like final response text and skips numeric-only tokens/IDs.
 - Default message: `Copilot has finished responding.`
+- Persistent settings are stored per-plugin in `${COPILOT_PLUGIN_DATA}/config.env`.
+
+## Slash Command
+
+After installing/updating the plugin, restart Copilot CLI and use:
+
+- `/agent-speech status`
+- `/agent-speech speak <text>`
+- `/agent-speech enable`
+- `/agent-speech disable`
+- `/agent-speech toggle`
+- `/agent-speech reset`
+- `/agent-speech set-voice <name>`
+- `/agent-speech set-rate <50-400>`
+- `/agent-speech set-volume <0-100>`
+- `/agent-speech set-language <en|ko|ja|zh-CN|es|fr|de|it>`
+- `/agent-speech list-voices`
 
 ## Environment Variables
 
@@ -64,3 +81,5 @@ copilot plugin install agent-speech-copilot-cli@welico
 - `AGENT_SPEECH_VOICE=Yuna` : Select voice (see `say -v ?`)
 - `AGENT_SPEECH_RATE=220` : Speaking rate
 - `AGENT_SPEECH_MAX_CHARS=240` : Maximum number of characters to read
+
+`AGENT_SPEECH_ENABLED`, `AGENT_SPEECH_VOICE`, `AGENT_SPEECH_RATE`, and `AGENT_SPEECH_MAX_CHARS` override slash-command settings when set.

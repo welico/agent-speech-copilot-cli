@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ "${AGENT_SPEECH_ENABLED:-true}" == "false" ]]; then
-  exit 0
-fi
-
-if ! command -v say >/dev/null 2>&1; then
-  exit 0
-fi
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=/dev/null
+source "${SCRIPT_DIR}/../scripts/agent-speech-common.sh"
 
 payload="$(cat || true)"
-max_chars="${AGENT_SPEECH_MAX_CHARS:-240}"
 
 text="$(
   printf "%s" "$payload" | python3 -c '
@@ -87,20 +82,4 @@ print(result or fallback)
 '
 )"
 
-if [[ -z "${text// }" ]]; then
-  text="Copilot has finished responding."
-fi
-
-if [[ "$max_chars" =~ ^[0-9]+$ ]] && (( ${#text} > max_chars )); then
-  text="${text:0:max_chars}..."
-fi
-
-say_args=()
-if [[ -n "${AGENT_SPEECH_VOICE:-}" ]]; then
-  say_args+=(-v "${AGENT_SPEECH_VOICE}")
-fi
-if [[ -n "${AGENT_SPEECH_RATE:-}" ]]; then
-  say_args+=(-r "${AGENT_SPEECH_RATE}")
-fi
-
-/usr/bin/say "${say_args[@]}" "$text"
+speak_text "$text"
