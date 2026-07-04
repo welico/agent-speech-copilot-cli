@@ -55,6 +55,7 @@ copilot plugin install agent-speech-copilot-cli@welico
 ## Behavior
 
 - On the `agentStop` hook, it plays a voice notification with macOS `say` when a response is complete.
+- It prioritizes sentence-like final response text and skips numeric-only tokens/IDs.
 - Default message: `Copilot has finished responding.`
 
 ## Environment Variables
