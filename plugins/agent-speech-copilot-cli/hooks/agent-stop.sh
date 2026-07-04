@@ -19,7 +19,7 @@ import re
 import sys
 
 raw = sys.stdin.read().strip()
-fallback = "Copilot 응답이 완료되었습니다."
+fallback = "Copilot has finished responding."
 if not raw:
     print(fallback)
     raise SystemExit(0)
@@ -59,7 +59,7 @@ print(result or fallback)
 )"
 
 if [[ -z "${text// }" ]]; then
-  text="Copilot 응답이 완료되었습니다."
+  text="Copilot has finished responding."
 fi
 
 if [[ "$max_chars" =~ ^[0-9]+$ ]] && (( ${#text} > max_chars )); then
